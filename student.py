@@ -72,18 +72,9 @@ class GoPiggy(pigo.Pigo):
         print('shimmy')
         for x in range(3):
             self.servo(30)
-            self.encR(3)
+            self.encR(40)
             self.servo(140)
-            self.encL(3)
-
-    def chacha(self):
-        print('chacha')
-        for x in range(5):
-            self.servo(15)
-            self.encR(5)
-            self.servo(160)
-            self.encL(5)
-
+            self.encL(40)
 
     ########################
     ### MAIN LOGIC LOOP - the core algorithm of my navigation
