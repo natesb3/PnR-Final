@@ -50,6 +50,7 @@ class GoPiggy(pigo.Pigo):
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit)
+                "v": ("shimmy", self.shimmy),
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -70,7 +71,7 @@ class GoPiggy(pigo.Pigo):
 
     def shimmy(self):
         print('shimmy')
-        for x in range(3):
+        for x in range(6):
             self.servo(30)
             self.encR(40)
             self.servo(140)

@@ -108,7 +108,7 @@ class Pigo(object):
         print('Moving '+str((enc/18))+' rotation(s) left')
         enc_tgt(1, 1, enc)
         left_rot()
-        time.sleep(1*(enc/18))
+        time.sleep(1*(enc/18)+.5)
 
 
     def encB(self, enc):
