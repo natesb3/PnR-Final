@@ -70,7 +70,7 @@ class GoPiggy(pigo.Pigo):
         # self.back_it_up()
 
     def shimmy(self):
-        print('shimmy')
+        print("shimmy")
         for x in range(6):
             self.servo(30)
             self.encR(40)
