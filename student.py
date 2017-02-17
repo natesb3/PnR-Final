@@ -50,7 +50,6 @@ class GoPiggy(pigo.Pigo):
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit)
-                "v": ("shimmy", self.shimmy),
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -65,17 +64,17 @@ class GoPiggy(pigo.Pigo):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
         self.shimmy()
-        # self.chacha()
+        # self.wow()
         # self.sprinkler()
         # self.back_it_up()
 
     def shimmy(self):
         print("shimmy")
         for x in range(6):
-            self.servo(30)
+            self.servo(50)
             self.encR(40)
             self.servo(140)
-            self.encL(40)
+            self.encL(60)
 
 
 
