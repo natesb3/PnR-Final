@@ -70,7 +70,7 @@ class GoPiggy(pigo.Pigo):
 
     def shimmy(self):
         print("shimmy")
-        for x in range(2):
+        for x in range(1):
             self.servo(50)
             self.encR(40)
             self.servo(140)
@@ -78,7 +78,7 @@ class GoPiggy(pigo.Pigo):
 
     def wow(self):
         print("wow")
-        for x in range(3):
+        for x in range(1):
             self.encR(90)
             self.servo(35)
             self.encL(95)
