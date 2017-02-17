@@ -65,7 +65,7 @@ class GoPiggy(pigo.Pigo):
         ##### WRITE YOUR FIRST PROJECT HERE
         self.shimmy()
         self.wow()
-        # self.sprinkler()
+        self.head_shake()
         # self.back_it_up()
 
     def shimmy(self):
