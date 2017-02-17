@@ -77,6 +77,8 @@ class GoPiggy(pigo.Pigo):
             self.servo(140)
             self.encL(40)
 
+
+
     ########################
     ### MAIN LOGIC LOOP - the core algorithm of my navigation
     ### (kind of a big deal)
