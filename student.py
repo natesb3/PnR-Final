@@ -64,7 +64,7 @@ class GoPiggy(pigo.Pigo):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
         self.shimmy()
-        # self.wow()
+        self.wow()
         # self.sprinkler()
         # self.back_it_up()
 
