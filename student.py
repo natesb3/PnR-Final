@@ -76,6 +76,18 @@ class GoPiggy(pigo.Pigo):
             self.servo(140)
             self.encL(60)
 
+    def wow(self):
+        print("wow")
+        for x in range(3):
+            self.encR(90)
+            self.servo(35)
+            self.encL(95)
+            self.encR(65)
+            self.encF(18)
+            self.servo(30)
+            self.encL(60)
+            self.encB(18)
+
 
 
     ########################
