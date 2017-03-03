@@ -52,6 +52,7 @@ class GoPiggy(pigo.Pigo):
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit)
                 }
+
         # loop and print the menu...
         for key in sorted(menu.keys()):
             print(key + ":" + menu[key][0])
@@ -60,6 +61,36 @@ class GoPiggy(pigo.Pigo):
         # activate the item selected
         menu.get(ans, [None, error])[1]()
 
+        def count_obstacles(self):
+            # run a scan
+            self.wide_scan()
+            # count how many obstacles I've found
+            counter = 0
+            # starting state assumes no obstacle
+            found_something = False
+            # loop through all my scan data
+            for x in self.scan:
+                # if x is not None and really close
+                if x and x < self.STOP_DIST:
+                    # If I've already found something
+                    if found_something:
+                        print("obstacles continues")
+                        # if this is a ne obstacle
+                    else:
+                        # switch my tracker
+                        found_something = True
+                        print("start of new obstacle")
+                # if my data show safe distances...
+                if x and x > self.STOP_DIST:
+                    #if my tracker has been triggered...
+                    if found_something:
+                        print("end of obstacle")
+                        # reset tracker
+                        found_something = False
+                        # increase count of obstacles
+                        counter += 1
+        print('Total number of obstacles in this scan: ' + str(counter))
+        return counter
     def turn_test(self):
         while True:
             ans = raw_input('Turn right, left or stop? (r/l/s): ')
@@ -80,9 +111,9 @@ class GoPiggy(pigo.Pigo):
             print('I must have turned right a lot now I should turn left')
 
         elif self.turn_track < 0:
-            print('I must have turned left a lot no I should turn tp se;f.encR(??)')
+            print('I must have turned left a lot no I should turn tp self.encR(??)')
             abs(self.turn_track)
-            self.encR(abs(-18))
+            self.encR(abs(-))
 
 
 
