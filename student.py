@@ -50,6 +50,7 @@ class GoPiggy(pigo.Pigo):
                 "c": ("Calibrate", self.calibrate),
                 "t": ("Turn test", self.turn_test),
                 "s": ("Check status", self.status),
+                "o": ("Count Obstacles", self.count_obstacles),
                 "q": ("Quit", quit)
                 }
 
@@ -61,36 +62,37 @@ class GoPiggy(pigo.Pigo):
         # activate the item selected
         menu.get(ans, [None, error])[1]()
 
-        def count_obstacles(self):
-            # run a scan
-            self.wide_scan()
-            # count how many obstacles I've found
-            counter = 0
-            # starting state assumes no obstacle
-            found_something = False
-            # loop through all my scan data
-            for x in self.scan:
-                # if x is not None and really close
-                if x and x < self.STOP_DIST:
-                    # If I've already found something
-                    if found_something:
-                        print("obstacles continues")
-                        # if this is a ne obstacle
-                    else:
-                        # switch my tracker
-                        found_something = True
-                        print("start of new obstacle")
-                # if my data show safe distances...
-                if x and x > self.STOP_DIST:
-                    #if my tracker has been triggered...
-                    if found_something:
-                        print("end of obstacle")
-                        # reset tracker
-                        found_something = False
-                        # increase count of obstacles
-                        counter += 1
+    def count_obstacles(self):
+        # run a scan
+        self.wide_scan()
+        # count how many obstacles I've found
+        counter = 0
+        # starting state assumes no obstacle
+        found_something = False
+        # loop through all my scan data
+        for x in self.scan:
+            # if x is not None and really close
+            if x and x < self.STOP_DIST:
+                # If I've already found something
+                if found_something:
+                    print("obstacles continues")
+                    # if this is a ne obstacle
+                else:
+                    # switch my tracker
+                    found_something = True
+                    print("start of new obstacle")
+            # if my data show safe distances...
+            if x and x > self.STOP_DIST:
+                # if my tracker has been triggered...
+                if found_something:
+                    print("end of obstacle")
+                    # reset tracker
+                    found_something = False
+                    # increase count of obstacles
+                    counter += 1
         print('Total number of obstacles in this scan: ' + str(counter))
         return counter
+
     def turn_test(self):
         while True:
             ans = raw_input('Turn right, left or stop? (r/l/s): ')
