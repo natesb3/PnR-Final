@@ -177,7 +177,6 @@ class GoPiggy(pigo.Pigo):
                 self.encR(6)
 
     def cruise(self):
-        self.fwd()
         while self.is_clear():
             time.sleep(.1)
         self.stop()
@@ -210,6 +209,3 @@ def quit():
 
 try:
     g = GoPiggy()
-except (KeyboardInterrupt, SystemExit):
-    from gopigo import *
-    stop()
