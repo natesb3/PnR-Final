@@ -176,8 +176,6 @@ class GoPiggy(pigo.Pigo):
             elif answer == "right":
                 self.encR(6)
 
-    def fwd(self):
-        fwd()
 
     def cruise(self):
         self.fwd()

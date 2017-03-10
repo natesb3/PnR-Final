@@ -12,6 +12,9 @@ class Pigo(object):
 
     def __init__(self):
 
+        def fwd(self):
+            fwd()
+
         self.MIDPOINT = 90
         self.STOP_DIST = 30
         self.RIGHT_SPEED = 200
