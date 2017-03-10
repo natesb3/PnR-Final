@@ -176,7 +176,11 @@ class GoPiggy(pigo.Pigo):
             elif answer == "right":
                 self.encR(6)
 
+    def fwd(self):
+        fwd()
+
     def cruise(self):
+        self.fwd()
         while self.is_clear():
             time.sleep(.1)
         self.stop()
@@ -209,3 +213,6 @@ def quit():
 
 try:
     g = GoPiggy()
+except (KeyboardInterrupt, SystemExit):
+    from gopigo import *
+    stop()
