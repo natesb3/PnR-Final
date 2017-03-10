@@ -208,8 +208,7 @@ def error():
 def quit():
     raise SystemExit
 
-##################################################################
-######## The app starts right here when we instantiate our GoPiggy
+# The app starts right here when we instantiate our GoPiggy
 
 try:
     g = GoPiggy()
