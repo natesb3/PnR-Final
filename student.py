@@ -167,15 +167,24 @@ class GoPiggy(pigo.Pigo):
         print("[ Press CTRL + C to stop me, then run stop.py ]\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
+        count = 0
         while True:
             if self.is_clear():
-                self.cruise()
+                self.encF(45)
+                count += 1
+            # tring to make robot move backwards when locating obstacle
+            if self.dist() < self.STOP_DIST:
+                self.encB(5)
+            if count > 5 and self.turn_track != 0:
+                self.restore_heading()
+                count = 0
             answer = self.choose_path()
             if answer == "left":
                 self.encL(6)
             elif answer == "right":
                 self.encR(6)
-
+                # trying to change navigation
+                # trying to make the robot move further when clear
 
     def cruise(self):
         self.fwd()  # I added this to pigo
