@@ -170,7 +170,7 @@ class GoPiggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            answer = self.choose_path()
+            answer = self.encFwd(5)
             if answer == "left":
                 self.encL(6)
             elif answer == "right":
