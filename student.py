@@ -209,20 +209,20 @@ class GoPiggy(pigo.Pigo):
         pigo.Pigo.encL(self, enc)
         self.turn_track -= enc
 
-    ####################################################
-    ############### STATIC FUNCTIONS
+####################################################
+############### STATIC FUNCTIONS
 
-    def error():
-        print('Error in input')
+def error():
+    print('Error in input')
 
-    def quit():
-        raise SystemExit
+def quit():
+    raise SystemExit
 
-    ##################################################################
-    ######## The app starts right here when we instantiate our GoPiggy
+##################################################################
+######## The app starts right here when we instantiate our GoPiggy
 
-    try:
-        g = GoPiggy()
-    except (KeyboardInterrupt, SystemExit):
-        from gopigo import *
-        stop()
+try:
+    g = GoPiggy()
+except (KeyboardInterrupt, SystemExit):
+    from gopigo import *
+    stop()
