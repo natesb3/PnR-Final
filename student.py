@@ -6,7 +6,7 @@ import random
 MR. A's Final Project Student Helper
 '''
 
-class GoPiggy(pigo.Pigo):
+    class GoPiggy(pigo.Pigo):
 
     ########################
     ### CONTSTRUCTOR - this special method auto-runs when we instantiate a class
