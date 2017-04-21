@@ -170,7 +170,7 @@ class GoPiggy(pigo.Pigo):
         count = 0
         while True:
             if self.is_clear():
-                self.encF(25)
+                self.encF(35)
                 count += 1
             # trying to make robot move backwards when locating obstacle
             if self.dist() < self.STOP_DIST:
@@ -185,6 +185,24 @@ class GoPiggy(pigo.Pigo):
                 self.encR(6)
                 # trying to change navigation
                 # trying to make the robot move further when clear
+
+    def maneuver(self):
+        # I have turned right and need to check my left side
+        if self.turn_track > 0:
+            while self.is_clear():
+                # go forward a little bit
+                self.encF(5)
+            # look left
+            self.servo(self.MIDPOINT + 60)
+            # see if it's above self.STOP_DIST + 20
+            if self.dist() > self.STOP_DIST + 20:
+                # restore_heading
+                self.restore_heading()
+                # return
+                return
+            # look straight ahead again
+            self.servo(self.MIDPOINT)
+            # I have turned left and need to check my right side
 
     def cruise(self):
         self.fwd()  # I added this to pigo
